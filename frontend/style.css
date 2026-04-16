@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #1e293b;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.4);
+}
+.sidebar h2 {
+  color: #38bdf8;
+  margin-bottom: 2rem;
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar li {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  background: #334155;
+  border-radius: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.sidebar li:hover {
+  background: #475569;
+  transform: translateX(6px);
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 2rem;
+  overflow-x: auto;
+}
+.main h1 {
+  margin-bottom: 1rem;
+}
+
+/* TOP BAR (FILTRO) */
+.top-bar {
+  background: #1e293b;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.top-bar label {
+  font-weight: bold;
+}
+select {
+  background: #0f172a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  cursor: pointer;
+}
+
+/* FORMULÁRIO */
+.form-box {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+.form-box h3 {
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+.form-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.form-group input {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: white;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+.form-group button {
+  background: #10b981;
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.form-group button:hover {
+  background: #059669;
+  transform: scale(1.02);
+}
+.btn-reset {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.btn-reset:hover {
+  background: #dc2626;
+}
+
+/* CARDS */
+.cards {
+  margin-bottom: 2rem;
+}
+.card {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border-left: 5px solid #38bdf8;
+  max-width: 300px;
+}
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* GRÁFICO */
+.grafico-box {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+canvas {
+  max-height: 400px;
+  width: 100%;
+}
+
+/* TABELA */
+.table-wrapper {
+  background: #1e293b;
+  border-radius: 16px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
+th {
+  background: #0f172a;
+  color: #94a3b8;
+}
+tr:hover {
+  background: #1e2a3a;
+}
+td button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-edit {
+  background: #facc15;
+  color: #1e293b;
+}
+.btn-edit:hover {
+  background: #eab308;
+  transform: scale(1.05);
+}
+.btn-delete {
+  background: #ef4444;
+  color: white;
+}
+.btn-delete:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #22c55e;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    text-align: center;
+  }
+  .form-group {
+    flex-direction: column;
+  }
+  .card {
+    max-width: 100%;
+  }
+}

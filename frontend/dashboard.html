@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataForge - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <aside class="sidebar">
+    <h2>⚡ DataForge</h2>
+    <ul>
+      <li>📊 Dashboard</li>
+      <li>📈 Relatórios</li>
+      <li>⚙️ Configurações</li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <h1>📊 Dashboard</h1>
+
+    <div class="top-bar">
+      <label>🔍 Filtrar por categoria:</label>
+      <select id="filtroCategoria">
+        <option value="todas">Todas</option>
+      </select>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>💰 Total de Vendas</h3>
+        <p id="total">R$ 0,00</p>
+      </div>
+    </div>
+
+    <div class="grafico-box">
+      <canvas id="grafico"></canvas>
+    </div>
+
+    <h2>📋 Registros</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Valor</th><th>Categoria</th><th>Data</th><th>Ações</th></tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="dashboard.js"></script>
+</body>
+</html>

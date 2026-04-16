@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataForge Pro - Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>⚡ DataForge</h2>
+    <ul>
+      <li>📊 Dashboard</li>
+      <li>📁 Dados</li>
+      <li>⚙️ Config</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <h1>📊 Dashboard de Vendas</h1>
+
+    <!-- FILTRO -->
+    <div class="top-bar">
+      <label>🔍 Filtrar por categoria:</label>
+      <select id="filtroCategoria">
+        <option value="todas">Todas</option>
+      </select>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="form-box">
+      <h3>➕ Nova Venda</h3>
+      <form id="formVenda" onsubmit="return false;">
+        <div class="form-group">
+          <input 
+            type="number" 
+            id="novoValor" 
+            placeholder="Valor (R$)" 
+            step="0.01"
+            required
+          >
+          <input 
+            type="text" 
+            id="novaCategoria" 
+            placeholder="Categoria (ex: GPU, CPU, RAM, SSD)"
+            required
+          >
+          <button type="button" id="btnAdicionar">
+            Adicionar
+          </button>
+        </div>
+        <button type="button" id="btnReset" class="btn-reset">
+          🧹 Zerar Dados
+        </button>
+      </form>
+    </div>
+
+    <!-- CARD -->
+    <div class="cards">
+      <div class="card">
+        <h3>💰 Total de Vendas</h3>
+        <p id="total">R$ 0,00</p>
+      </div>
+    </div>
+
+    <!-- GRÁFICO -->
+    <div class="grafico-box">
+      <canvas id="grafico"></canvas>
+    </div>
+
+    <!-- TABELA -->
+    <h2>📋 Registros de Vendas</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Valor</th>
+            <th>Categoria</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
