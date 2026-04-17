@@ -93,6 +93,7 @@ dataforge/
 ├── images/                # Capturas de tela
 ├── .gitignore
 └── README.md
+
 API Endpoints
 Método	Rota	Descrição
 GET	/vendas	Retorna todas as vendas
