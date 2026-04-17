@@ -1,115 +1,126 @@
 # DataForge – Dashboard de Vendas
 
-Sistema web para gerenciamento de vendas com dashboard interativo, filtros, gráficos e persistência local de dados. Desenvolvido como uma ferramenta prática para controle de vendas por categoria.
+Sistema web completo para gestão de vendas, com dashboard interativo, gráficos, filtros e persistência de dados em JSON.  
+Desenvolvido com **Node.js + Express** no backend e **HTML/CSS/JS + Chart.js** no frontend.
 
-## Visão geral
+![Status](https://img.shields.io/badge/status-finalizado-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-O DataForge permite registrar, visualizar e analisar vendas de produtos como GPUs, CPUs, memórias RAM e SSDs. Os dados são armazenados em um arquivo JSON e a interface oferece feedback visual e operações CRUD completas.
+---
+
+## Capturas de tela
+
+![Dashboard principal](images/Captura%20de%20tela%202026-04-16%20174518.png)
+![Tabela de vendas](images/Captura%20de%20tela%202026-04-16%20174759.png)
+![Gráfico agregado](images/Captura%20de%20tela%202026-04-16%20174813.png)
+![Filtro por categoria](images/Captura%20de%20tela%202026-04-16%20174841.png)
+![Botão zerar dados](images/Captura%20de%20tela%202026-04-16%20174849.png)
+
+---
 
 ## Funcionalidades
 
-- Registro de vendas (valor + categoria)
-- Listagem em tabela com opções de edição e exclusão
-- Filtro por categoria
-- Totalização automática dos valores
-- Gráfico de barras agregado por categoria (Chart.js)
-- Botão para limpar todos os registros
-- Notificações estilo toast para ações do usuário
+- ✅ Adicionar vendas (valor + categoria)
+- ✅ Listar vendas em tabela responsiva
+- ✅ Filtrar por categoria (GPU, CPU, RAM, SSD, etc.)
+- ✅ Gráfico de barras agregado por categoria
+- ✅ Editar e excluir vendas individualmente
+- ✅ Zerar todos os dados com um clique
+- ✅ Notificações estilo toast (sucesso/erro)
+- ✅ Persistência em arquivo `db.json`
+- ✅ Design escuro e responsivo
 
-## Tecnologias
+---
+
+## Tecnologias utilizadas
 
 **Backend**  
 - Node.js  
 - Express  
 - CORS  
-- File system (persistência em JSON)
+- File System (persistência local)
 
 **Frontend**  
-- HTML5 / CSS3 (layout responsivo)  
+- HTML5 / CSS3 (Flexbox, Grid)  
 - JavaScript (ES6+)  
-- Chart.js  
+- Chart.js (gráficos)  
 - Fetch API
 
-## Como executar
+---
 
-### Pré-requisitos
-- Node.js instalado (versão 14 ou superior)
+## Como executar o projeto
+
+### Pré‑requisitos
+- Node.js (versão 14 ou superior)
 - Navegador atual (Chrome, Edge, Firefox)
 
 ### Passos
 
-1. Clone o repositório e acesse a pasta do projeto:
+1. **Clone o repositório**
    ```bash
    git clone https://github.com/iLGuilhermeDev/dataforge.git
    cd dataforge
-   ```
+Instale as dependências do backend
 
-2. Instale as dependências do backend:
-   ```bash
-   cd backend
-   npm init -y
-   npm install express cors
-   ```
+bash
+cd backend
+npm init -y
+npm install express cors
+Inicie o servidor
 
-3. Inicie o servidor:
-   ```bash
-   node server.js
-   ```
-   A mensagem `Servidor rodando em http://localhost:3000` confirmará a execução.
+bash
+node server.js
+Você verá:
+✅ Servidor rodando em http://localhost:3000
 
-4. Abra o arquivo `frontend/admin.html` diretamente no navegador (duplo clique).  
-   > Não é necessário servidor web adicional para o frontend.
+Abra o frontend
+Navegue até a pasta frontend e abra o arquivo admin.html diretamente no navegador (duplo clique).
 
-## Estrutura do projeto
+Não é necessário servidor web extra – o frontend se comunica diretamente com o backend via localhost:3000.
 
-```
+Estrutura do projeto
+text
 dataforge/
 ├── backend/
-│   ├── server.js          # API e rotas
-│   └── db.json            # Base de dados (JSON)
+│   ├── server.js          # API Express
+│   └── db.json            # Banco de dados (JSON)
 ├── frontend/
-│   ├── admin.html         # Painel principal
+│   ├── admin.html         # Painel principal (completo)
 │   ├── admin.js           # Lógica do painel
-│   ├── dashboard.html     # Visualização simplificada
+│   ├── dashboard.html     # Versão simplificada (opcional)
 │   ├── dashboard.js       # Lógica simplificada
 │   └── style.css          # Estilos globais
+├── images/                # Capturas de tela
 ├── .gitignore
 └── README.md
-```
-
-## API Endpoints
-
-| Método | Rota               | Descrição                        |
-|--------|--------------------|----------------------------------|
-| GET    | `/vendas`          | Retorna todas as vendas          |
-| POST   | `/vendas`          | Adiciona uma nova venda          |
-| PUT    | `/vendas/:id`      | Atualiza uma venda existente     |
-| DELETE | `/vendas`          | Remove todos os registros        |
-| DELETE | `/vendas/:id`      | Remove uma venda específica      |
-
+API Endpoints
+Método	Rota	Descrição
+GET	/vendas	Retorna todas as vendas
+POST	/vendas	Adiciona uma nova venda
+PUT	/vendas/:id	Edita uma venda existente
+DELETE	/vendas	Remove todas as vendas
+DELETE	/vendas/:id	Remove uma venda específica
 Exemplo de corpo para POST/PUT:
-```json
+
+json
 {
   "valor": 1250.90,
   "categoria": "GPU"
 }
-```
+Possíveis melhorias futuras
+Autenticação de usuários (login)
 
-## Possíveis melhorias futuras
+Exportação de dados para CSV/Excel
 
-- Autenticação de usuários
-- Exportação de dados para CSV/Excel
-- Filtro por período (data inicial e final)
-- Deploy em nuvem (backend na Render, frontend na Vercel)
+Filtro por período (data inicial e final)
 
-## Licença
+Deploy em nuvem (backend na Render, frontend na Vercel)
 
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para detalhes.
+Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para detalhes.
 
-## Contato
+Contato
+Desenvolvido por Luis Guilherme – GitHub
+Sugestões ou problemas? Abra uma issue.
 
-Desenvolvido por [Luis Guilherme](https://github.com/iLGuilhermeDev).  
-Para sugestões ou reportar problemas, utilize as [issues do GitHub](https://github.com/iLGuilhermeDev/dataforge/issues).
-```
-
----
+Aproveite o DataForge! ⚡
